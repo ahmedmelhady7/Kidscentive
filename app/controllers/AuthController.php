@@ -12,6 +12,10 @@ class AuthController extends Controller {
 		return View::make('register');
 	}
 
+	function getAddTask() {
+		return View::make('addtask');
+	}
+
 	function postLogin() {
 		$rules = array('username' => 'required', 'password' => 'required');
 		$validator = Validator::make(Input::all(), $rules);
@@ -39,7 +43,27 @@ class AuthController extends Controller {
 			$parent -> password = Hash::make(Input::get('password'));
 			$parent -> role = Input::get('role');
 			$parent -> save();
-			return Redirect::to('login') -> with('message', 'Thanks for registering!');
+			return Redirect::route('login') -> with('message', 'Thanks for registering!');
+		}
+	}
+
+	function postAddTask() {
+		$rules = array('title' => 'required', 'points' => 'required');
+		$validator = Validator::make(Input::all(), $rules);
+		if ($validator -> fails()) {
+			return Redirect::route('addtask') -> withErrors($validator);
+		} else {
+			$task = new Task;
+			$task -> title = Input::get('title');
+			$task -> points = Input::get('points');
+			$task -> priority = Input::get('priority');
+			$task -> assignee_id = Input::get('assignee_id');
+			$task -> creator_id = Auth::user() -> id;
+			$task -> done = false;
+			$task -> expiry_date = Input::get('expiry_date');
+			$task -> save();
+			return Redirect::route('home') -> with('message', 'your task has been added!');
+
 		}
 	}
 

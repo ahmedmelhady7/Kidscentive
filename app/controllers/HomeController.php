@@ -22,7 +22,10 @@ class HomeController extends BaseController {
 	
 	public function getIndex()
 	{
-		return View::make('home');
+		$user = Auth::user();
+		$fullname = $user->fullname;
+		$tasks = $user->tasks;
+		return View::make('home')->with('user', $tasks);
 	}
 	
 }

@@ -14,9 +14,9 @@ class KidsTableSeeder extends Seeder {
 		  		'fullname' => 'Jonah',
 		  		'username' => 'jonah',
 		  		'password' => Hash::make('123456'),
-				'parent1_id' => '1',
-				'parent2_id' => '2',
-				'points' => '0'
+				'parent1_id' => 1,
+				'parent2_id' => 2,
+				'points' => 0
 			)
 		  );
 		  
