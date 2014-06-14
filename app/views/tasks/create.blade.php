@@ -22,9 +22,9 @@
 </select>
 <label for="assignee_id">Assign To</label>
 <select name="assignee_id">
-	<option value="1">Ahmed</option>
-	<option value="2">Omar</option>
-	<option value="3">Mai</option>
+	@foreach($kids as $kid)
+	<option value="{{$kid->id}}">{{$kid->fullname}}</option>
+	@endforeach
 </select>
 <input type="submit" value="Add Task"/>
 {{ Form::close()}}

@@ -14,6 +14,11 @@
 			{{Form::open(array('method'=>'delete', 'route'=>array('tasks.destroy', $task->id)))}}
 				{{Form::submit('Delete')}}
 			{{Form::close()}}
+			@if(!$task->done)
+				{{Form::open(array('route'=>array('tasks.approve', $task->id)))}}
+					{{Form::submit('Approve Points')}}
+				{{Form::close()}}
+			@endif
 		@endforeach
 @else
 	There are no tasks

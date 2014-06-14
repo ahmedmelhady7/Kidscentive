@@ -30,6 +30,7 @@ Route::get('/tasks/edit/{id}',array('as'=>'tasks.edit','uses'=>'TasksController@
 Route::delete('/tasks/destroy/{id}',array('as'=>'tasks.destroy','uses'=>'TasksController@destroy'))->before('auth');
 Route::post('tasks/store/{id}',array('as'=>'tasks.store','uses'=>'TasksController@store'))->before('auth');
 Route::post('tasks/update/{id}',array('as'=>'tasks.update','uses'=>'TasksController@update'))->before('auth');
+Route::post('tasks/approve/{id}',array('as'=>'tasks.approve','uses'=>'TasksController@approve'))->before('auth');
 Route::get('/parents/edit',array('as'=>'parents.edit','uses'=>'AuthController@getEditProfile'))->before('auth');
 Route::post('/parents/edit',array('as'=>'parents.update','uses'=>'AuthController@postEditProfile'))->before('auth');
 Route::get('/kids',array('as'=>'kids.index','uses'=>'KidsController@index'))->before('auth');
