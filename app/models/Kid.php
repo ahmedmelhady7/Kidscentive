@@ -1,5 +1,10 @@
 <?php
 
 class Kid extends Eloquent {
-    protected $table = "kids";
+	protected $table = "kids";
+
+	public function user() {
+		return $this -> morphOne('User', 'userable');
+	}
+
 }
