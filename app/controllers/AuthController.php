@@ -16,6 +16,14 @@ class AuthController extends Controller {
 		return View::make('addtask');
 	}
 
+	function getEditTask() {
+		$id = Input::get('id');
+		echo 'hadi'.$id; 
+		/*
+		$task = Task::FindOrFail($id);
+		return View::make('edittask')->with('task', $task);*/
+	}	
+
 	function postLogin() {
 		$rules = array('username' => 'required', 'password' => 'required');
 		$validator = Validator::make(Input::all(), $rules);
@@ -65,6 +73,11 @@ class AuthController extends Controller {
 			return Redirect::route('home') -> with('message', 'your task has been added!');
 
 		}
+	}
+
+	function postEditTask()
+	{
+		
 	}
 
 	function signout() {
