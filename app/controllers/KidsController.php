@@ -41,8 +41,9 @@ class KidsController extends BaseController {
 	}
 
 	public function show($id) {
-		$kid = $this -> kid -> FindOrFail($id);
-		return View::make('kids.show')->with('kid', $kid);
+		$user = Auth::user();
+		$kids = $this -> kid -> FindOrFail($id);
+		return View::make('kids.show')->with(array('kid'=>$kids, 'user'=>$user));
 	}
 
 	public function edit($id) {

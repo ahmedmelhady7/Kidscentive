@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Firmaly | Home</title>
+		<title>Kidscentive | Home</title>
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 		<!-- bootstrap 3.0.2 -->
 		<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
 		<link href="{{asset('css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet" type="text/css" />
 		<!-- Theme style -->
 		<link href="{{asset('css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />
-		<link rel="shortcut icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{asset('img/kidscentive-fav.ico')}}" type="image/x-icon">
 		<link rel="icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
