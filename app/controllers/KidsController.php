@@ -13,8 +13,11 @@ class KidsController extends BaseController {
 
 	public function index() {
 		$user = Auth::user();
-		$kids = $user->kids;
-		return View::make('kids.index')->with(array('kids'=>$kids, 'user'=>$user));
+		$kids = $user -> kids;
+		$isParent = $user -> type == 'parent';
+		if ($isParent)
+			return View::make('kids.index') -> with(array('kids' => $kids, 'user' => $user, 'isParent' => $isParent));
+		return Redirect::route('home') -> with(array('kids' => $kids, 'user' => $user, 'isParent' => $isParent));
 	}
 
 	public function create() {
@@ -22,17 +25,19 @@ class KidsController extends BaseController {
 	}
 
 	public function store() {
-		$rules = array('fullname' => 'required', 'username' => 'required', 'password'=>'required');
+		$rules = array('fullname' => 'required', 'username' => 'required', 'password' => 'required');
 		$validator = Validator::make(Input::all(), $rules);
 		if ($validator -> fails()) {
 			return Redirect::route('kids.create') -> withErrors($validator);
 		} else {
-			$kid = new Kid;
+			$kid = new User;
+			$kid -> email = 'hadi2@gmail.com';
 			$kid -> fullname = Input::get('fullname');
 			$kid -> username = Input::get('username');
 			$kid -> points = Input::get('points');
 			$kid -> password = Hash::make(Input::get('password'));
 			$kid -> parent1_id = Auth::user() -> id;
+			$kid -> type = 'kid';
 			$kid -> save();
 			return Redirect::route('kids.index') -> with('message', 'your kid has been added!');
 
@@ -41,14 +46,14 @@ class KidsController extends BaseController {
 
 	public function show($id) {
 		$kid = $this -> kid -> FindOrFail($id);
-		return View::make('kids.show')->with('kid', $kid);
+		return View::make('kids.show') -> with('kid', $kid);
 	}
 
 	public function edit($id) {
 		$kid = $this -> kid -> find($id);
 		if (is_null($kid))
 			return Redirect::route('kids.index');
-		return View::make('kids.edit')->with('kid', $kid);
+		return View::make('kids.edit') -> with('kid', $kid);
 	}
 
 	public function update($id) {
@@ -69,15 +74,15 @@ class KidsController extends BaseController {
 
 		}
 	}
-	
-	public function destroy()
-	{
+
+	public function destroy() {
 		$id = Input::get('id');
-		if($this->kid->find($id)->delete());
+		if ($this -> kid -> find($id) -> delete())
+			;
 		{
 			return Redirect::route('kids.index') -> with('message', 'your kid was deleted');
 		}
-		return Redirect::route('kids.index')->with('message', 'nothing was deleted');
+		return Redirect::route('kids.index') -> with('message', 'nothing was deleted');
 	}
 
 }

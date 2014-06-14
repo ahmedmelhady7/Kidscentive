@@ -41,6 +41,7 @@
 								</div><!-- /.box-header -->
 								<div class="box-body">
 									<ul class="todo-list">
+									@if($user->type=='parent')
 										@if($tasks->count())
 										@foreach($tasks as $task)
 										<li>
@@ -51,7 +52,7 @@
 											<!-- todo text -->
 											<span class="text">{{$task->title}}</span>
 											<!-- Emphasis label -->
-											<small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+											<small class="label label-danger"><i class="fa fa-clock-o"></i>{{$task->timestamps}} min</small>
 											<!-- General tools such as edit or delete-->
 											<div class="tools">
 												<a href="{{URL::route('tasks.edit',array($task->id))}}"><i class="fa fa-edit"></i></a>
@@ -62,10 +63,26 @@
 										@else
 											There are no tasks
 										@endif
+									@else
+										@foreach($todotasks as $todo)
+										<li>
+											<!-- drag handle -->
+											<span class="handle"> <i class="fa fa-ellipsis-v"></i> <i class="fa fa-ellipsis-v"></i> </span>
+											<!-- checkbox -->
+											<input type="checkbox" value="" name=""/>
+											<!-- todo text -->
+											<span class="text">{{$todo->title}}</span>
+											<!-- Emphasis label -->
+											<small class="label label-danger"><i class="fa fa-clock-o"></i>{{$todo->timestamps}} min</small>
+										</li>
+										@endforeach
+									@endif
 								</div><!-- /.box-body -->
 								<div class="box-footer clearfix no-border">
+									
+									@if($user->type=='parent')
 									<a href="{{URL::route('tasks.create')}}" class="btn btn-default pull-right"> <i class="fa fa-plus"></i> Add item </a>
-
+									@endif
 									<div class="box-tools pull-left">
 										<ul class="pagination pagination-sm inline">
 											<li>
@@ -466,6 +483,7 @@
 
 	</section><!-- /.content -->
 </aside><!-- /.right-side -->
+@if($user->type=='parent')
 @if($tasks->count())
 <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
@@ -489,5 +507,6 @@
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+@endif
 @endif
 @stop

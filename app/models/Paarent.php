@@ -7,20 +7,10 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class Paarent extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait;
+	protected $table = "parents";
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'parents';
-
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
+	public function user() {
+		return $this -> morphMany('User', 'userable');
+	}
 
 }

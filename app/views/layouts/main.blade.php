@@ -266,10 +266,11 @@
 						<li>
 							<a href="{{URL::route('tasks.index')}}"> <i class="fa fa-th"></i> <span>Tasks</span> <small class="badge pull-right bg-green">new</small> </a>
 						</li>
-						
+						@if($user->type=='parent')
 						<li>
 							<a href="{{URL::route('kids.index')}}"> <i class="fa fa-th"></i> <span>Kids</span> <small class="badge pull-right bg-green">new</small> </a>
 						</li>
+						@endif
 					</ul>
 				</section>
 				<!-- /.sidebar -->
