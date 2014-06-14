@@ -955,30 +955,30 @@ There are no tasks
 	</section><!-- /.content -->
 </aside><!-- /.right-side -->
 @if($user->type=='parent')
-@if($tasks->count())
-<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
-			</div>
-			{{Form::open(array('method'=>'delete', 'route'=>array('tasks.destroy', $task->id)))}}
-			<div class="modal-footer clearfix">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">
-					<i class="fa fa-times"></i> Discard
-				</button>
-				<button type="submit" class="btn btn-primary pull-left">
-					<i class="fa fa-envelope"></i> Delete Task
-				</button>
-			</div>
-			{{Form::close()}}
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-@endif
+	@if($tasks->count())
+	<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
+				</div>
+				{{Form::open(array('method'=>'delete', 'route'=>array('tasks.destroy', $task->id)))}}
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<i class="fa fa-times"></i> Discard
+					</button>
+					<button type="submit" class="btn btn-primary pull-left">
+						<i class="fa fa-envelope"></i> Delete Task
+					</button>
+				</div>
+				{{Form::close()}}
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	@endif
 @endif
 
 @stop

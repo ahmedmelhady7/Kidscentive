@@ -2,6 +2,10 @@
 @extends('layouts.main')
 
 @section('content')
+<aside class="right-side down">
+	<!-- Main content -->
+	<section class="content">
+		<!-- Main row -->
 		<!-- Main row -->
 		<div class="row">
 			<!-- right col (We are only adding the ID to make the widgets sortable)-->
@@ -26,4 +30,6 @@
 					</div>
 			</section><!-- right col -->
 		</div><!-- /.row (main row) -->
+	</section>
+</aside>
 @stop
