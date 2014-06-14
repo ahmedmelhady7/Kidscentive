@@ -11,7 +11,7 @@
 			<p>{{$task->title}}</p>
 			<p>{{link_to_route('tasks.show', 'Show', array($task->id))}}</p>
 			<p> {{link_to_route('tasks.edit', 'Edit', array($task->id))}}</p>
-			{{Form::open(array('method'=>'DELETE', 'route'=>array('tasks.destroy', $task->id)))}}
+			{{Form::open(array('method'=>'delete', 'route'=>array('tasks.destroy', $task->id)))}}
 				{{Form::submit('Delete')}}
 			{{Form::close()}}
 		@endforeach

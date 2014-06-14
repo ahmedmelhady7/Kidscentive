@@ -25,7 +25,7 @@ class HomeController extends BaseController {
 		$user = Auth::user();
 		$fullname = $user->fullname;
 		$tasks = $user->tasks;
-		return View::make('home')->with('user', $tasks);
+		return View::make('home')->with('user', $user);
 	}
 	
 }

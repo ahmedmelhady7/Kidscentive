@@ -82,7 +82,7 @@ class AuthController extends Controller {
 
 	function signout() {
 		Auth::logout();
-		return View::make('login');
+		return Redirect::to('login');
 	}
 
 }

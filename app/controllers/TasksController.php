@@ -78,8 +78,7 @@ class TasksController extends BaseController {
 	
 	public function destroy($id)
 	{
-		$this->task->find($id)->delete;
-		
+		$this->task->find($id)->delete();
 		return Redirect::route('tasks.index');
 	}
 

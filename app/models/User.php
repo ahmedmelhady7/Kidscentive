@@ -27,6 +27,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->hasMany('Task', 'creator_id');
 	}
+	
+	public function kids()
+	{
+		return $this->hasMany('Kid', 'parent1_id');
+	}
 
 	/**
 	 * The polymorphism method for the kids table
