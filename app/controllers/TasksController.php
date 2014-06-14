@@ -15,13 +15,15 @@ class TasksController extends BaseController {
 		$user = Auth::user();
 		$fullname = $user -> fullname;
 		$tasks = $user -> tasks;
-		return View::make('tasks.index') -> with(array('tasks'=>$tasks,'user'=>$user));
+		if ($user -> type == 'parent')
+			return View::make('tasks.index') -> with(array('tasks' => $tasks, 'user' => $user));
+		return View::make('tasks.index') -> with(array('todotasks' => $user->todotasks, 'user' => $user));
 	}
 
 	public function create() {
 		$user = Auth::user();
 		$kids = $user -> kids;
-		return View::make('tasks.create') -> with(array('kids'=>$kids,'user'=>$user));
+		return View::make('tasks.create') -> with(array('kids' => $kids, 'user' => $user));
 	}
 
 	public function store() {
@@ -47,7 +49,7 @@ class TasksController extends BaseController {
 	public function show($id) {
 		$user = Auth::user();
 		$task = $this -> task -> FindOrFail($id);
-		return View::make('tasks.show') -> with(array('task'=>$task,'user'=>$user));
+		return View::make('tasks.show') -> with(array('task' => $task, 'user' => $user));
 	}
 
 	public function edit($id) {
@@ -55,7 +57,7 @@ class TasksController extends BaseController {
 		$task = $this -> task -> find($id);
 		if (is_null($task))
 			return Redirect::route('tasks.index');
-		return View::make('tasks.edit') -> with(array('task'=>$task,'user'=>$user));
+		return View::make('tasks.edit') -> with(array('task' => $task, 'user' => $user));
 	}
 
 	public function update($id) {
@@ -95,9 +97,8 @@ class TasksController extends BaseController {
 			$task -> done = true;
 			$task -> save();
 			return Redirect::route('kids.index');
-		}
-		else {
-			return Redirect::route('kids.index')->with('message', 'you already approved this one');
+		} else {
+			return Redirect::route('kids.index') -> with('message', 'you already approved this one');
 		}
 	}
 

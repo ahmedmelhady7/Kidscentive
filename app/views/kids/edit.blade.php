@@ -1,7 +1,7 @@
+
 @extends('layouts.main')
 
 @section('content')
-
 
 @foreach($errors->all() as $error)
 <p class="error">
@@ -18,5 +18,6 @@
 {{Form::text('username')}}
 <input type="submit" value="Update kid Profile"/>
 {{link_to_route('kids.show','Cancel', $kid->id)}}
+
 {{Form::close()}}
 @stop

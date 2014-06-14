@@ -49,12 +49,13 @@ class AuthController extends Controller {
 			return Redirect::route('register') -> withErrors($validator);
 		} else {
 			if (Input::get('password') == Input::get('password2')) {
-				$parent = new Paarent;
+				$parent = new User;
 				$parent -> fullname = Input::get('fullname');
 				$parent -> username = Input::get('username');
 				$parent -> email = Input::get('email');
 				$parent -> password = Hash::make(Input::get('password'));
 				$parent -> role = Input::get('role');
+				$parent -> type = 'parent';
 				$parent -> save();
 				return Redirect::route('login') -> with('message', 'Thanks for registering!');
 			} else {

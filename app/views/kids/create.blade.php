@@ -1,7 +1,7 @@
+
 @extends('layouts.main')
 
 @section('content')
-
 
 @foreach($errors->all() as $error)
 <p class="error">
@@ -47,6 +47,5 @@
 
 	</section><!-- /.content -->
 </aside><!-- /.right-side -->
-
 
 @stop

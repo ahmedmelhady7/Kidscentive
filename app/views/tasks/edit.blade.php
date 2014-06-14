@@ -1,7 +1,3 @@
-@extends('layouts.main')
-
-@section('content')
-
 @foreach($errors->all() as $error)
 <p class="error">
 	{{$error}}
@@ -33,7 +29,6 @@
 					</div>
 			</section><!-- right col -->
 		</div><!-- /.row (main row) -->
-
 	</section><!-- /.content -->
 </aside><!-- /.right-side -->
 

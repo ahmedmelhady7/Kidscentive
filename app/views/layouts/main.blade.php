@@ -2,7 +2,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+
 		<title>Kidscentive | Home</title>
+
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 		<!-- bootstrap 3.0.2 -->
 		<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -22,7 +24,9 @@
 		<link href="{{asset('css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet" type="text/css" />
 		<!-- Theme style -->
 		<link href="{{asset('css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />
+
 		<link rel="shortcut icon" href="{{asset('img/kidscentive-fav.ico')}}" type="image/x-icon">
+
 		<link rel="icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,7 +39,9 @@
 	<body class="skin-blue">
 		<!-- header logo: style can be found in header.less -->
 		<header class="header">
+
 			<a href="{{URL::route('home')}}" class="logo"> <!-- Add the class icon to your logo image or logo icon to add the margining --> <img src="{{asset('img/Kidscentive-logo.png')}}" width="165px" height="35"/> </a>
+
 			<!-- Header Navbar: style can be found in header.less -->
 			<nav class="navbar navbar-fixed-top" role="navigation">
 				<!-- Sidebar toggle button-->
@@ -115,6 +121,7 @@
 									<!-- inner menu: contains the actual data -->
 									<ul class="menu">
 										<li>
+
 											<a href="#"> <i class="ion ion-ios7-people info"></i> Johnny completed a task!!</a>
 										</li>
 										<li>
@@ -139,13 +146,16 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-tasks"></i> <span class="label label-danger">9</span> </a>
 							<ul class="dropdown-menu">
 								<li class="header">
+
 									You have 4 kids
+
 								</li>
 								<li>
 									<!-- inner menu: contains the actual data -->
 									<ul class="menu">
 										<li>
 											<!-- Task item -->
+
 											<a href="#"> <h3>Johnny<small class="pull-right">20%</small></h3>
 											<div class="progress xs">
 												<div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
@@ -164,6 +174,7 @@
 										</li><!-- end task item -->
 										<li>
 											<!-- Task item -->
+
 											<a href="#"> <h3>Jill<small class="pull-right">60%</small></h3>
 											<div class="progress xs">
 												<div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
@@ -195,6 +206,7 @@
 								<li class="user-header bg-firmaly-green">
 									<img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
 									<p>
+
 										{{$user->fullname}} - Father
 										<small>Member since Nov. 2012</small>
 									</p>
@@ -202,6 +214,7 @@
 								<!-- Menu Body -->
 								<li class="user-body">
 									<div class="col-xs-4 text-center">
+
 										<a href="#">Kids</a>
 									</div>
 									<div class="col-xs-4 text-center">
@@ -263,10 +276,11 @@
 						<li>
 							<a href="{{URL::route('tasks.index')}}"> <i class="fa fa-th"></i> <span>Tasks</span> <small class="badge pull-right bg-green">new</small> </a>
 						</li>
-						
+						@if($user->type=='parent')
 						<li>
 							<a href="{{URL::route('kids.index')}}"> <i class="fa fa-th"></i> <span>Kids</span> <small class="badge pull-right bg-green">new</small> </a>
 						</li>
+						@endif
 					</ul>
 				</section>
 				<!-- /.sidebar -->

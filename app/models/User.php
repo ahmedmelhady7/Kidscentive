@@ -14,7 +14,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'parents';
+	protected $table = 'users';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -28,9 +28,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Task', 'creator_id');
 	}
 	
+	public function todotasks()
+	{
+		return $this->hasMany('Task', 'assignee_id');
+	}
+	
 	public function kids()
 	{
-		return $this->hasMany('Kid', 'parent1_id');
+		return $this->hasMany('User', 'parent1_id');
 	}
 
 	/**
