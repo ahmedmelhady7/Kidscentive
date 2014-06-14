@@ -14,11 +14,12 @@ class KidsController extends BaseController {
 	public function index() {
 		$user = Auth::user();
 		$kids = $user->kids;
-		return View::make('kids.index')->with('kids', $kids);
+		return View::make('kids.index')->with(array('kids'=>$kids, 'user'=>$user));
 	}
 
 	public function create() {
-		return View::make('kids.create');
+		$user = Auth::user();
+		return View::make('kids.create')->with('user', $user);
 	}
 
 	public function store() {

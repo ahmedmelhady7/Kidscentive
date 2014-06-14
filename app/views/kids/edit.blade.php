@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 @foreach($errors->all() as $error)
 <p class="error">
 	{{$error}}

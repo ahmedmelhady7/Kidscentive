@@ -97,6 +97,7 @@ return array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
+		// 'Illuminate\Auth\MultiUserProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
