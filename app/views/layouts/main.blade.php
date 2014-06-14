@@ -35,7 +35,7 @@
 	<body class="skin-blue">
 		<!-- header logo: style can be found in header.less -->
 		<header class="header">
-			<a href="home.html" class="logo"> <!-- Add the class icon to your logo image or logo icon to add the margining --> <img src="{{asset('img/firmalylogo.png')}}" width="165px" height="35"/> </a>
+			<a href="{{URL::route('home')}}" class="logo"> <!-- Add the class icon to your logo image or logo icon to add the margining --> <img src="{{asset('img/firmalylogo.png')}}" width="165px" height="35"/> </a>
 			<!-- Header Navbar: style can be found in header.less -->
 			<nav class="navbar navbar-fixed-top" role="navigation">
 				<!-- Sidebar toggle button-->
