@@ -1,7 +1,3 @@
-@extends('layouts.main')
-
-@section('content')
-
 @foreach($errors->all() as $error)
 <p class="error">
 	{{$error}}
@@ -23,4 +19,3 @@
 <input type="submit" value="Update Task"/>
 {{link_to_route('tasks.show','Cancel', $task->id)}}
 {{Form::close()}}
-@stop

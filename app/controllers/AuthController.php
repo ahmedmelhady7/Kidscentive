@@ -36,32 +36,37 @@ class AuthController extends Controller {
 		if (!$auth) {
 			//$kidauth = $auth = KidAuth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'), 'provider'=>'kid'), false);
 			//if (!$kidauth)
-				return Redirect::route('login') -> withErrors(array('Invalid credentials were provided. '));
+			return Redirect::route('login') -> withErrors(array('Invalid credentials were provided. '));
 			//return Redirect::route('home');
 		}
 		return Redirect::route('home');
 	}
 
 	function postRegister() {
-		$rules = array('email' => 'required|email', 'username' => 'required', 'fullname' => 'required', 'password' => 'required');
+		$rules = array('email' => 'required|email', 'username' => 'required', 'fullname' => 'required', 'password2' => 'required', 'password' => 'required');
 		$validator = Validator::make(Input::all(), $rules);
 		if ($validator -> fails()) {
 			return Redirect::route('register') -> withErrors($validator);
 		} else {
-			$parent = new Paarent;
-			$parent -> fullname = Input::get('fullname');
-			$parent -> username = Input::get('username');
-			$parent -> email = Input::get('email');
-			$parent -> password = Hash::make(Input::get('password'));
-			$parent -> role = Input::get('role');
-			$parent -> save();
-			return Redirect::route('login') -> with('message', 'Thanks for registering!');
+			if (Input::get('password') == Input::get('password2')) {
+				$parent = new Paarent;
+				$parent -> fullname = Input::get('fullname');
+				$parent -> username = Input::get('username');
+				$parent -> email = Input::get('email');
+				$parent -> password = Hash::make(Input::get('password'));
+				$parent -> role = Input::get('role');
+				$parent -> save();
+				return Redirect::route('login') -> with('message', 'Thanks for registering!');
+			} else {
+				$validator2 = "Password Mismatch";
+				return Redirect::route('register') -> withErrors($validator2);
+			}
 		}
 	}
 
 	function getEditProfile() {
 		$parent = Auth::user();
-		return View::make('parents.edit') -> with('parent', $parent);
+		return View::make('parents.edit') -> with('user', $parent);
 	}
 
 	function postEditProfile() {

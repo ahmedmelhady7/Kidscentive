@@ -1,6 +1,3 @@
-@extends('layouts.main')
-
-@section('content')
 <h1>All kids</h1>
 <p> {{link_to_route('kids.create', 'Add new kid')}}</p>
 @if(Session::has('message'))
@@ -19,4 +16,3 @@
 @else
 	There are no kids
 @endif
-@stop

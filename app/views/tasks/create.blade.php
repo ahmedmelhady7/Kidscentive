@@ -1,6 +1,3 @@
-@extends('layouts.main')
-
-@section('content')
 @foreach($errors->all() as $error)
 <p class="error">
 	{{$error}}
@@ -28,5 +25,3 @@
 </select>
 <input type="submit" value="Add Task"/>
 {{ Form::close()}}
-
-@stop

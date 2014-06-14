@@ -15,13 +15,13 @@ class TasksController extends BaseController {
 		$user = Auth::user();
 		$fullname = $user -> fullname;
 		$tasks = $user -> tasks;
-		return View::make('tasks.index') -> with('tasks', $tasks);
+		return View::make('tasks.index') -> with(array('tasks'=>$tasks,'user'=>$user));
 	}
 
 	public function create() {
 		$user = Auth::user();
 		$kids = $user -> kids;
-		return View::make('tasks.create') -> with('kids', $kids);
+		return View::make('tasks.create') -> with(array('kids'=>$kids,'user'=>$user));
 	}
 
 	public function store() {
@@ -45,15 +45,17 @@ class TasksController extends BaseController {
 	}
 
 	public function show($id) {
+		$user = Auth::user();
 		$task = $this -> task -> FindOrFail($id);
-		return View::make('tasks.show') -> with('task', $task);
+		return View::make('tasks.show') -> with(array('task'=>$task,'user'=>$user));
 	}
 
 	public function edit($id) {
+		$user = Auth::user();
 		$task = $this -> task -> find($id);
 		if (is_null($task))
 			return Redirect::route('tasks.index');
-		return View::make('tasks.edit') -> with('task', $task);
+		return View::make('tasks.edit') -> with(array('task'=>$task,'user'=>$user));
 	}
 
 	public function update($id) {

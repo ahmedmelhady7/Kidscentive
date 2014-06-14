@@ -1,6 +1,3 @@
-@extends('layouts.main')
-
-@section('content')
 @foreach($errors->all() as $error)
 <p class="error">
 	{{$error}}
@@ -18,5 +15,3 @@
 <input type="password" name="password" placeholder="Kid Password"/>
 <input type="submit" value="Add Kid"/>
 {{ Form::close()}}
-
-@stop
