@@ -18,11 +18,11 @@ class AuthController extends Controller {
 
 	function getEditTask() {
 		$id = Input::get('id');
-		echo 'hadi'.$id; 
+		echo 'hadi' . $id;
 		/*
-		$task = Task::FindOrFail($id);
-		return View::make('edittask')->with('task', $task);*/
-	}	
+		 $task = Task::FindOrFail($id);
+		 return View::make('edittask')->with('task', $task);*/
+	}
 
 	function postLogin() {
 		$rules = array('username' => 'required', 'password' => 'required');
@@ -55,6 +55,28 @@ class AuthController extends Controller {
 		}
 	}
 
+	function getEditProfile() {
+		$parent = Auth::user();
+		return View::make('parents.edit') -> with('parent', $parent);
+	}
+
+	function postEditProfile() {
+		$rules = array('username' => 'required', 'fullname' => 'required');
+		$validator = Validator::make(Input::all(), $rules);
+		if ($validator -> fails()) {
+			return Redirect::route('parents.edit') -> withErrors($validator);
+		} else {
+			$parent = Auth::user();
+			$parent -> fullname = Input::get('fullname');
+			$parent -> username = Input::get('username');
+			$parent -> email = Input::get('email');
+			$parent -> role = Input::get('role');
+			$parent -> save();
+			return Redirect::route('login') -> with('message', 'Thanks for registering!');
+		}
+
+	}
+
 	function postAddTask() {
 		$rules = array('title' => 'required', 'points' => 'required');
 		$validator = Validator::make(Input::all(), $rules);
@@ -75,9 +97,8 @@ class AuthController extends Controller {
 		}
 	}
 
-	function postEditTask()
-	{
-		
+	function postEditTask() {
+
 	}
 
 	function signout() {
