@@ -10,8 +10,8 @@
 		<link href="{{URL::asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
 		<!-- Theme style -->
 		<link href="{{URL::asset('css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />
-		<link rel="shortcut icon" href="{{URL::asset('img/favicon.ico')}}" type="image/x-icon">
-		<link rel="icon" href="{{URL::asset('img/favicon.ico')}}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{URL::asset('img/kidscentive-fav.ico')}}" type="image/x-icon">
+		<link rel="icon" href="{{URL::asset('img/kidscentive-fav.ico')}}" type="image/x-icon">
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -22,7 +22,7 @@
 	<body class="bg-black">
 
 		<div class="col-md-4 col-md-offset-4 text-center firmalylogo">
-			<img width="180px" src="{{URL::asset('img/firmalylogo.png')}}"/>
+			<img width="180px" src="{{URL::asset('img/kidscentive-logo.png')}}"/>
 		</div>
 		@if ($errors->count() >= 1)
 		<div class="col-md-4 alert alert-danger alert-dismissable">

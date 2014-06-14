@@ -485,6 +485,7 @@
 </aside><!-- /.right-side -->
 @if($user->type=='parent')
 @if($tasks->count())
+
 <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
