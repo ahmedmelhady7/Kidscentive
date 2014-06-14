@@ -6,20 +6,6 @@
 	{{ Session::get('message') }}
 </p>
 @endif
-@if($tasks->count())
-@foreach($tasks as $task)
-<p>
-	{{link_to_route('tasks.show', 'Show', array($task->id))}}
-</p>
-@if(!$task->done)
-{{Form::open(array('route'=>array('tasks.approve', $task->id)))}}
-{{Form::submit('Approve Points')}}
-{{Form::close()}}
-@endif
-@endforeach
-@else
-There are no tasks
-@endif
 <aside class="right-side">
 	<!-- Main content -->
 	<section class="content">
@@ -55,6 +41,7 @@ There are no tasks
 								</div><!-- /.box-header -->
 								<div class="box-body">
 									<ul class="todo-list">
+										@if($tasks->count())
 										@foreach($tasks as $task)
 										<li>
 											<!-- drag handle -->
@@ -72,6 +59,9 @@ There are no tasks
 											</div>
 										</li>
 										@endforeach
+										@else
+											There are no tasks
+										@endif
 								</div><!-- /.box-body -->
 								<div class="box-footer clearfix no-border">
 									<a href="{{URL::route('tasks.create')}}" class="btn btn-default pull-right"> <i class="fa fa-plus"></i> Add item </a>
@@ -476,7 +466,7 @@ There are no tasks
 
 	</section><!-- /.content -->
 </aside><!-- /.right-side -->
-
+@if($tasks->count())
 <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -499,5 +489,5 @@ There are no tasks
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
+@endif
 @stop
