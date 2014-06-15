@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration {
 			$table->integer('assignee_id');
 			$table->integer('points');
 			$table->string('title');
+			$table->boolean('approved');
 			$table->string('priority');
 			$table->date('expiry_date')->nullable();
 			$table->boolean('done');

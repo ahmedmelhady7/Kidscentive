@@ -39,6 +39,9 @@ class AuthController extends Controller {
 			return Redirect::route('login') -> withErrors(array('Invalid credentials were provided. '));
 			//return Redirect::route('home');
 		}
+		$user = Auth::user();
+		if ($user -> type == 'parent')
+			return Redirect::route('kids.index');
 		return Redirect::route('home');
 	}
 

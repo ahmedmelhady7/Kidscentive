@@ -98,13 +98,11 @@ class TasksController extends BaseController {
 
 	public function approve($id) {
 		$task = $this -> task -> find($id);
-		var_dump($task);
 		$assignee = User::find($task -> assignee_id);
-		var_dump($assignee);
-		if (!$task -> done) {
+		if (!$task -> approved) {
 			$assignee -> points += $task -> points;
 			$assignee -> save();
-			$task -> done = true;
+			$task -> approved = true;
 			$task -> save();
 			return Redirect::route('kids.index');
 		} else {
