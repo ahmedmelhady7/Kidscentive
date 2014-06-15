@@ -29,6 +29,10 @@
 		<!-- row -->
 		<div class="row">
 			<div class="col-md-12">
+				<div class="row">
+				  <div class="col-md-9"></div>
+				  <div class="col-md-3"><h1 class="points">{{$user->points}} points</h1></div>
+				</div>
 				<!-- The time line -->
 				<ul class="timeline">
 					<!-- timeline time label -->
@@ -41,12 +45,9 @@
 						<i class="fa fa-envelope bg-blue"></i>
 						<div class="timeline-item">
 							<span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-							<h3 class="timeline-header"><a href="#">Support Team</a> sent you and email</h3>
+							<h3 class="timeline-header"><a href="#">Kidscentive</a> says:</h3>
 							<div class="timeline-body">
-								Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-								weebly ning heekya handango imeem plugg dopplr jibjab, movity
-								jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-								quora plaxo ideeli hulu weebly balihoo...
+								Great job {{$user->fullname}}!! Keep up the good work!!!!
 							</div>
 							<div class='timeline-footer'>
 								<a class="btn btn-primary btn-xs">Read more</a>
@@ -60,7 +61,7 @@
 						<i class="fa fa-user bg-aqua"></i>
 						<div class="timeline-item">
 							<span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-							<h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
+							<h3 class="timeline-header no-border"><a href="#">Your Mom</a> approved your task</h3>
 						</div>
 					</li>
 					<!-- END timeline item -->

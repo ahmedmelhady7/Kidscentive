@@ -27,7 +27,7 @@
 
 		<link rel="shortcut icon" href="{{asset('img/kidscentive-fav.ico')}}" type="image/x-icon">
 
-		<link rel="icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
+		<link rel="icon" href="{{asset('img/kidscentive-favic.ico')}}" type="image/x-icon">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -111,6 +111,7 @@
 						</li>
 						-->
 						<!-- Notifications: style can be found in dropdown.less -->
+						@if($user->type=='parent')
 						<li class="dropdown notifications-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-warning"></i> <span class="label label-danger">10</span> </a>
 							<ul class="dropdown-menu">
@@ -198,6 +199,7 @@
 								</li>
 							</ul>
 						</li>
+						@endif
 						<!-- User Account: style can be found in dropdown.less -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"></i> <span>{{$user->fullname}} <i class="caret"></i></span> </a>
@@ -207,7 +209,7 @@
 									<img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
 									<p>
 
-										{{$user->fullname}} - Father
+										{{$user->fullname}} - {{$user->type}}
 										<small>Member since Nov. 2012</small>
 									</p>
 								</li>
@@ -215,7 +217,7 @@
 								<li class="user-body">
 									<div class="col-xs-4 text-center">
 
-										<a href="#">Kids</a>
+										<a href="#">Dashboard</a>
 									</div>
 									<div class="col-xs-4 text-center">
 										<a href="#">Tasks</a>
@@ -270,15 +272,36 @@
 					<!-- /.search form -->
 					<!-- sidebar menu: : style can be found in sidebar.less -->
 					<ul class="sidebar-menu">
-						<li class="active">
-							<a href="home.html"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+						@if($user->type=='kid')
+						<li>
+							<a href="{{URL::route('home')}}"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
 						</li>
+						@endif
 						<li>
 							<a href="{{URL::route('tasks.index')}}"> <i class="fa fa-th"></i> <span>Tasks</span> <small class="badge pull-right bg-green">new</small> </a>
 						</li>
 						@if($user->type=='parent')
 						<li>
-							<a href="{{URL::route('kids.index')}}"> <i class="fa fa-th"></i> <span>Kids</span> <small class="badge pull-right bg-green">new</small> </a>
+							<a href="{{URL::route('kids.index')}}"> <i class="fa fa-user"></i> <span>Kids</span></a>
+						</li>
+						<li>
+							<a href="{{URL::route('kids.index')}}"> <i class="fa fa-shopping-cart"></i> <span>Incentives</span></a>
+						</li>
+						@endif
+						@if($user->type=='kid')
+						<li>
+							<a href="{{URL::route('home')}}"><i class="fa fa-shopping-cart"></i><span>Redeem Points</span></a>
+							<ul class="sidebar-menu">
+								<li class="prize">
+									<img src="{{asset('img/cookie.png')}}" width="100px" height="100px" class="przimg"/><p>Cookie - 50 points</p>
+								</li>
+								<li class="prize">
+									<img src="{{asset('img/icecream.png')}}" width="100px" height="100px" class="przimg"/><p>Ice Cream - 100points</p>
+								</li>
+								<li class="prize">
+									<img src="{{asset('img/videogames.png')}}" width="100px" height="100px" class="przimg"/><p>Video Games - 150 points</p>
+								</li>
+							</ul>
 						</li>
 						@endif
 					</ul>

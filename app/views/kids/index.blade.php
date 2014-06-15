@@ -26,7 +26,7 @@
                             {{$kid->fullname}}
                         </h3>
                         <p>
-                            {{$kid->points}}
+                            {{$kid->points}} points
                         </p>
                     </div>
                     <div class="icon">

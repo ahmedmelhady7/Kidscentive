@@ -3445,11 +3445,36 @@ fieldset[disabled] .btn-vk.active {
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
 	box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-<<<<<<< HEAD
 }
 
 .down {
   margin-top: 50px;
-=======
->>>>>>> 51fbd8dbb6eadc79b84e6dfd6fa659d3bdc8f0d3
 }
+
+.points {
+  color: #00c0ef;
+  font-size: 50px;
+}
+
+.przimg {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.prize {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,7 +32,7 @@ class KidsController extends BaseController {
 			return Redirect::route('kids.create') -> withErrors($validator);
 		} else {
 			$kid = new User;
-			$kid -> email = 'hadi2@gmail.com';
+			$kid -> email = Input::get('email');
 			$kid -> fullname = Input::get('fullname');
 			$kid -> username = Input::get('username');
 			$kid -> points = Input::get('points');
