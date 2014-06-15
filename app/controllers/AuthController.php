@@ -42,7 +42,7 @@ class AuthController extends Controller {
 		$user = Auth::user();
 		if ($user -> type == 'parent')
 			return Redirect::route('kids.index');
-		return Redirect::route('home');
+		return Redirect::route('incentives.index');
 	}
 
 	function postRegister() {

@@ -232,7 +232,7 @@
 										<a href="{{URL::route('parents.edit')}}" class="btn btn-default btn-flat">Edit Profile</a>
 									</div>
 									<div class="pull-right">
-										<a href="signout" class="btn btn-default btn-flat">Sign out</a>
+										<a href="{{URL::route('signout')}}" class="btn btn-default btn-flat">Sign out</a>
 									</div>
 								</li>
 							</ul>

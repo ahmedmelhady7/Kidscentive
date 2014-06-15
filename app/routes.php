@@ -18,7 +18,7 @@ Route::get('/login',array('as'=>'login','uses'=>'AuthController@getLogin'))->bef
 Route::post('/login',array('uses'=>'AuthController@postLogin'))->before('csrf');
 Route::get('/register',array('as'=>'register','uses'=>'AuthController@getRegister'));
 Route::post('/register',array('uses'=>'AuthController@postRegister'))->before('csrf');
-Route::get('/signout',array('uses'=>'AuthController@signout'));
+Route::get('/signout',array('as'=>'signout','uses'=>'AuthController@signout'));
 Route::get('/tasks',array('as'=>'tasks.index','uses'=>'TasksController@index'))->before('auth');
 Route::post('/tasks',array('uses'=>'TasksController@postIndex'))->before('auth');
 Route::get('/tasks/create',array('as'=>'tasks.create','uses'=>'TasksController@create'))->before('auth');

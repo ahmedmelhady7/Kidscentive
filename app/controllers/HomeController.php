@@ -24,8 +24,9 @@ class HomeController extends BaseController {
 		$fullname = $user -> fullname;
 		$tasks = $user -> tasks;
 		$isParent = $user -> type == 'parent';
+		$incentives = Incentive::all();
 		if (!$isParent)
-			return View::make('home') -> with(array('user' => $user, 'isParent' => $isParent));
+			return View::make('incentives.index') -> with(array('incentives'=>$incentives, 'user' => $user, 'isParent' => $isParent));
 		return Redirect::route('kids.index');
 	}
 	

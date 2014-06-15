@@ -19,7 +19,8 @@ class IncentivesController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		return View::make('incentives.create');
+		$user = Auth::user();
+		return View::make('incentives.create')->with('user',$user);
 	}
 
 	/**
@@ -34,7 +35,7 @@ class IncentivesController extends \BaseController {
 		$incentive -> name = $name;
 		$incentive -> worth = $worth;
 		$incentive -> save();
-		return Redirect::route('incentives.index') -> with('message', 'your task has been added!');
+		return Redirect::route('incentives.index') -> with('message', 'your incentive has been added!');
 
 	}
 
