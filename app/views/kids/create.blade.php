@@ -30,7 +30,11 @@
 				    <div class="form-group">
 				        <label for="username">Kid Username</label>
 								<input type="text" name="username" placeholder="Kid Username" class="form-control"/>
-				    </div>                                      
+				    </div>   
+				    <div class="form-group">
+				        <label for="email">Kid Email</label>
+								<input type="text" name="email" placeholder="Kid Email" class="form-control"/>
+				    </div>                                     
 				    <div class="form-group">
 				        <label for="password">Kid Account Password</label>
 								<input type="password" name="password" placeholder="Kid Password" class="form-control"/>

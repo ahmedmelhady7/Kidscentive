@@ -6,7 +6,7 @@
 	{{ Session::get('message') }}
 </p>
 @endif
-<aside class="right-side">
+<aside class="right-side down">
 	<!-- Main content -->
 	<section class="content">
 		<!-- Main row -->
