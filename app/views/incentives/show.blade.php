@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/Kidscentive/app/views/incentives/show.blade.php

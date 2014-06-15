@@ -46,7 +46,9 @@
 												<a href="{{URL::route('tasks.edit',array($task->id))}}"><i class="fa fa-edit"></i></a>
 												<a data-toggle="modal" data-target="#compose-modal"><i class="fa fa-trash-o"></i></a>
 												@if(!$task->approved)
+												@if($task->done)
 												<input type="submit" value="Approve Points" class="btn btn-info btn-sm" />
+												@endif
 												@endif
 											</div>
 											{{Form::close()}}
@@ -70,7 +72,9 @@
 											<!-- Emphasis label -->
 											<small class="label label-danger"><i class="fa fa-clock-o"></i>{{$todo->timestamps}} min</small>
 											<div class="tools">
-												<input type="submit" value="Send To Dad" class="btn btn-info btn-sm" />
+												@if(!$todo->done)
+												<input type="submit" value="Mark as Done" class="btn btn-info btn-sm" />
+												@endif
 											</div>
 										</li>
 										{{Form::close()}}

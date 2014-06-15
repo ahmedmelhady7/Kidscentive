@@ -38,3 +38,8 @@ Route::delete('/kids/destroy',array('as'=>'kids.destroy','uses'=>'KidsController
 Route::post('Kids/store/{id}',array('as'=>'kids.store','uses'=>'KidsController@store'))->before('auth');
 Route::post('Kids/update/{id}',array('as'=>'kids.update','uses'=>'KidsController@update'))->before('auth');
 
+Route::get('/incentives',array('as'=>'incentives.index','uses'=>'IncentivesController@index'))->before('auth');
+Route::get('/incentives/create',array('as'=>'incentives.create','uses'=>'IncentivesController@create'))->before('auth');
+Route::post('/incentives/store',array('as'=>'incentives.store','uses'=>'IncentivesController@store'))->before('auth');
+Route::post('/incentives/purchase/{id}',array('as'=>'incentives.purchase','uses'=>'IncentivesController@purchase'))->before('auth');
+Route::get('/incentives/purchase/{id}',array('as'=>'incentives.purchase','uses'=>'IncentivesController@purchase'))->before('auth');

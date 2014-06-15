@@ -28,5 +28,10 @@ class HomeController extends BaseController {
 			return View::make('home') -> with(array('user' => $user, 'isParent' => $isParent));
 		return Redirect::route('kids.index');
 	}
+	
+	public function incentives()
+	{
+		return View::make('incentives');	
+	}
 
 }

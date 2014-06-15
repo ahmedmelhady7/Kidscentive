@@ -285,12 +285,12 @@
 							<a href="{{URL::route('kids.index')}}"> <i class="fa fa-user"></i> <span>Kids</span></a>
 						</li>
 						<li>
-							<a href="{{URL::route('kids.index')}}"> <i class="fa fa-shopping-cart"></i> <span>Incentives</span></a>
+							<a href="{{URL::route('incentives.index')}}"> <i class="fa fa-shopping-cart"></i> <span>Incentives</span></a>
 						</li>
 						@endif
 						@if($user->type=='kid')
 						<li>
-							<a href="{{URL::route('home')}}"><i class="fa fa-shopping-cart"></i><span>Redeem Points</span></a>
+							<a href="{{URL::route('incentives.index')}}"><i class="fa fa-shopping-cart"></i><span>Redeem Points</span></a>
 							<ul class="sidebar-menu">
 								<li class="prize">
 									<img src="{{asset('img/cookie.png')}}" width="100px" height="100px" class="przimg"/><p>Cookie - 50 points</p>
