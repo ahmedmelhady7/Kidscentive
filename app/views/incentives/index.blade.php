@@ -26,18 +26,64 @@
 				@endif
 				@if($incentives->count())
 				<div class="row">
-					@foreach($incentives as $incentive)
-					<div class="col-lg-3 col-xs-6">
+
+					<div class="col-lg-4 col-xs-6">
 						<!-- small box -->
-						<div class="small-box bg-aqua">
+						<div class="small-box cookie">
 							<div class="inner">
-								<h3> {{$incentive->name}} </h3>
+								<h1>Cookie</h1>
+								<p>
+									50 points
+								</p>
+							</div>
+
+							<div class="small-box-footer purchase">
+								Purchase
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-xs-6">
+						<!-- small box -->
+						<div class="small-box icecream">
+							<div class="inner">
+								<h1>Icecream</h1>
+								<p>
+									70 points
+								</p>
+							</div>
+
+							<div class="small-box-footer purchase">
+								Purchase
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-xs-6">
+						<!-- small box -->
+						<div class="small-box games">
+							<div class="inner">
+								<h1>Icecream</h1>
+								<p>
+									70 points
+								</p>
+							</div>
+
+							<div class="small-box-footer purchase">
+								Purchase
+							</div>
+						</div>
+					</div>
+
+					@foreach($incentives as $incentive)
+					<div class="col-lg-4 col-xs-6">
+						<!-- small box -->
+						<div class="small-box bg-red">
+							<div class="inner">
+								<h1> {{$incentive->name}} </h1>
 								<p>
 									{{$incentive->worth}} points
 								</p>
-							</div>
-							<div class="icon">
-								<i class="fa fa-fw fa-user"></i>
 							</div>
 							@if($user->type=='kid')
 							@if($incentive->purchased)
@@ -56,6 +102,7 @@
 					{{Form::hidden('id', $incentive->id)}}
 					{{Form::close()}}
 					@endforeach
+					
 				</div>
 				@else
 				There are no incentives

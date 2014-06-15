@@ -60,7 +60,7 @@
 						<li>
 						<a href="#">
 						<div class="pull-left">
-						<img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image"/>
+						<img src="{{asset('img/avatar.png')}}" class="img-circle" alt="User Image"/>
 						</div> <h4> Support Team <small><i class="fa fa-clock-o"></i> 5 mins</small></h4>
 						<p>
 						Why not buy a new awesome theme?
@@ -206,7 +206,7 @@
 							<ul class="dropdown-menu">
 								<!-- User image -->
 								<li class="user-header bg-firmaly-green">
-									<img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
+									<img src="{{asset('img/avatar.png')}}" class="img-circle" alt="User Image" />
 									<p>
 
 										{{$user->fullname}} - {{$user->type}}
@@ -249,7 +249,7 @@
 					<!-- Sidebar user panel -->
 					<div class="user-panel">
 						<div class="pull-left image">
-							<img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
+							<img src="{{asset('img/avatar.png')}}" class="img-circle" alt="User Image" />
 						</div>
 						<div class="pull-left info">
 							<p>
