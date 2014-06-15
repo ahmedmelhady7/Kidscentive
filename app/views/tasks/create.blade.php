@@ -9,7 +9,6 @@
 </p>
 @endforeach
 
-<<<<<<< HEAD
 <aside class="right-side down">
 	<!-- Main content -->
 	<section class="content">

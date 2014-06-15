@@ -45,10 +45,11 @@
 										@if($tasks->count())
 										@foreach($tasks as $task)
 										<li>
+											{{Form::open(array('route'=>array('tasks.approve', $task->id)))}}
 											<!-- drag handle -->
 											<span class="handle"> <i class="fa fa-ellipsis-v"></i> <i class="fa fa-ellipsis-v"></i> </span>
 											<!-- checkbox -->
-											<input type="checkbox" value="" name=""/>
+											<input type="checkbox" {{$task->done ? 'checked': ''}}/>
 											<!-- todo text -->
 											<span class="text">{{$task->title}}</span>
 											<!-- Emphasis label -->
@@ -57,7 +58,11 @@
 											<div class="tools">
 												<a href="{{URL::route('tasks.edit',array($task->id))}}"><i class="fa fa-edit"></i></a>
 												<a data-toggle="modal" data-target="#compose-modal"><i class="fa fa-trash-o"></i></a>
+											@if($task->done)
+												<input type="submit" value="Approve Points" class="btn btn-info btn-sm" />
+											@endif
 											</div>
+											{{Form::close()}}
 										</li>
 										@endforeach
 										@else
@@ -65,16 +70,22 @@
 										@endif
 									@else
 										@foreach($todotasks as $todo)
+										{{Form::open(array('route'=>'tasks.index'))}}
 										<li>
 											<!-- drag handle -->
 											<span class="handle"> <i class="fa fa-ellipsis-v"></i> <i class="fa fa-ellipsis-v"></i> </span>
 											<!-- checkbox -->
-											<input type="checkbox" value="" name=""/>
+											<input type="checkbox" {{$todo->done ? 'checked': ''}}/>
+											<input type="hidden" name="id" value="{{$todo->id}}" />
 											<!-- todo text -->
 											<span class="text">{{$todo->title}}</span>
 											<!-- Emphasis label -->
 											<small class="label label-danger"><i class="fa fa-clock-o"></i>{{$todo->timestamps}} min</small>
+											<div class="tools">
+												<input type="submit" value="Send To Dad" class="btn btn-info btn-sm" />
+											</div>
 										</li>
+										{{Form::close()}}
 										@endforeach
 									@endif
 								</div><!-- /.box-body -->
@@ -510,5 +521,6 @@
 </div><!-- /.modal -->
 @endif
 @endif
-
+<script type="text/javascript">
+</script>
 @stop

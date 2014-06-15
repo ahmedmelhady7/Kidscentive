@@ -20,6 +20,15 @@ class TasksController extends BaseController {
 		return View::make('tasks.index') -> with(array('todotasks' => $user->todotasks, 'user' => $user));
 	}
 
+	public function postIndex()
+	{
+		$id = Input::get('id');
+		$task = Task::findOrFail($id);
+		$task->done = true;
+		$task->save();
+		return Redirect::route('tasks.index');
+	}
+
 	public function create() {
 		$user = Auth::user();
 		$kids = $user -> kids;
@@ -89,7 +98,8 @@ class TasksController extends BaseController {
 
 	public function approve($id) {
 		$task = $this -> task -> find($id);
-		$assignee = Kid::find($task -> assignee_id);
+		var_dump($task);
+		$assignee = User::find($task -> assignee_id);
 		var_dump($assignee);
 		if (!$task -> done) {
 			$assignee -> points += $task -> points;
